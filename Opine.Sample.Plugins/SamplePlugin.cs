@@ -47,7 +47,6 @@ namespace Opine.Sample.Plugins
             }
 
             collection
-                .AddScoped<IHandlerFinder, HandlerFinder>()
                 // Use dynamic dispatching
                 .AddScoped<IDispatcher, DynamicDispatcher>()
                 .AddScoped<IUnitOfWork, SampleUnitOfWork>()
