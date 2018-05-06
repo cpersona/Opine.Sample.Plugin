@@ -11,8 +11,6 @@ First, clone the Opine Framework and build it.
 git clone https://github.com/cpersona/Opine
 cd Opine
 dotnet build
-code .
-cd ..
 ```
 
 Then clone the sample and build it. It should sit as a sibling to Opine.
@@ -21,8 +19,6 @@ Then clone the sample and build it. It should sit as a sibling to Opine.
 git clone https://github.com/cpersona/Opine.Sample.Plugin
 cd Opine.Sample.Plugin
 dotnet build
-code .
-cd ..
 ```
 
 ### Running the sample
@@ -39,7 +35,7 @@ one for commands and one for events.
 ### Aggregate
 
 The CustomerAggregate is responsible for ensuring consistency within the Customer root. 
-You can create customer, add a subscription, or end the current subscription. The 
+You can create a customer, add a subscription, or end the current subscription. The 
 following events are raised:
 - Created
 - SubscriptionAdded
@@ -56,7 +52,7 @@ are handled:
 ### Projections
 
 The CustomerProjection and CustomerSubscriptionProjections handle events and would be used
-to project data into respective tables in a database. These classes will be called when 
+to project data into respective tables in a database. These classes are called when 
 processing the "events" stream (-s option in launch.json).
 
 ### Message store
@@ -67,13 +63,12 @@ handling and event handling.
 
 ### Unit of work
 
-The SampleUnitOfWork is a no-op class. In a real scenario, we would persist data to EventStore
+The SampleUnitOfWork is a no-op class. In a real scenario, data would be persisted to EventStore
 after commands have been processed or to a database after events have been processed and projections 
 have run.
 
 ### Snapshot store
 
-The SampleSnapshotStore is a no-op class. In a real scenario, we would persist and load snapshots
-to EventStore or to a relational database table depending on requirements. 
+The SampleSnapshotStore is a no-op class. In a real scenario, snapshots would be saved to and loaded from EventStore or relational database depending on requirements. 
 
 
