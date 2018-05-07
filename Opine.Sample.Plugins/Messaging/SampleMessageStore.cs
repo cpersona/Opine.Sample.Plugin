@@ -21,7 +21,7 @@ namespace Opine.Sample.Plugins.Messaging
             {
                 new StoredMessage(
                     Guid.NewGuid(),
-                    new Stream("events"),
+                    new Stream("events", typeof(Customer), aggregateIds[0]),
                     new Metadata(aggregateIds[0]),
                     new Created("Customer1", "GOLD", DateTime.Parse("1/1/2018")),
                     0L,
@@ -29,7 +29,7 @@ namespace Opine.Sample.Plugins.Messaging
                     "user1"),
                 new StoredMessage(
                     Guid.NewGuid(),
-                    new Stream("events"),
+                    new Stream("events", typeof(Customer), aggregateIds[0]),
                     new Metadata(aggregateIds[0]),
                     new SubscriptionAdded("PLATINUM", DateTime.Parse("2/1/2018")),
                     1L,
