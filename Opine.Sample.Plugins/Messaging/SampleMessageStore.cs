@@ -24,33 +24,25 @@ namespace Opine.Sample.Plugins.Messaging
                     new Stream("events", typeof(Customer), aggregateIds[0]),
                     new Metadata(aggregateIds[0]),
                     new Created("Customer1", "GOLD", DateTime.Parse("1/1/2018")),
-                    0L,
-                    DateTime.Now,
-                    "user1"),
+                    0L),
                 new StoredMessage(
                     Guid.NewGuid(),
                     new Stream("events", typeof(Customer), aggregateIds[0]),
                     new Metadata(aggregateIds[0]),
                     new SubscriptionAdded("PLATINUM", DateTime.Parse("2/1/2018")),
-                    1L,
-                    DateTime.Now,
-                    "user1"),
+                    1L),
                 new StoredMessage(
                     Guid.NewGuid(),
                     new Stream("commands"),
                     new Metadata(aggregateIds[1]),
                     new Create("Customer1", "GOLD", DateTime.Parse("1/1/2018")),
-                    2L,
-                    DateTime.Now,
-                    "user1"),
+                    2L),
                 new StoredMessage(
                     Guid.NewGuid(),
                     new Stream("commands"),
                     new Metadata(aggregateIds[1]),
                     new AddSubscription("PLATINUM", DateTime.Parse("2/1/2018")),
-                    3L,
-                    DateTime.Now,
-                    "user1"),
+                    3L),
             };
         public async Task<IEnumerable<StoredMessage>> Read(Stream stream, long position, int count)
         {
@@ -65,9 +57,7 @@ namespace Opine.Sample.Plugins.Messaging
                     stream,
                     x.Metadata,
                     x.Data,
-                    0L,
-                    DateTime.Now,
-                    "user1")));
+                    0L)));
         }
     }
 }
